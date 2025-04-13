@@ -1,0 +1,19 @@
+<div class="furniture-grid">
+    @for (item of furnitureList; track item.id; let i = $index) {
+      <mat-card class="furniture-card">
+        <img mat-card-image [src]="pictures[i]" alt="{{ item.type }}">
+        <mat-card-content>
+          <h3>{{ item.type }}</h3>
+          <p><strong>ID:</strong> {{ item.id }}</p>
+          <p><strong>User:</strong> {{ item.userid }}</p>
+          <p><strong>Date:</strong> {{ item.date | dateFormat }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-icon-button color="primary" (click)="addToCart(item)">
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    }
+  </div>
+  
