@@ -1,0 +1,42 @@
+<div class="furniture-grid">
+    @for (item of furnitureList; track item.id; let i = $index) {
+      <mat-card class="furniture-card" [ngClass]="{ 'new-card': isNew(item) }">
+        <div class="new-tag" *ngIf="isNew(item)">NEW</div>
+          <img mat-card-image [src]="pictureBlock[i]" alt="{{ item.type }}">
+          <mat-card-content>
+            <h3>{{ item.type }}</h3>
+            <p><strong>ID:</strong> {{ item.id }}</p>
+            <p><strong>User:</strong> {{ item.userid | usernameFormat }}</p>
+            <p><strong>Date:</strong> {{ item.date | dateFormat }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+          <button mat-icon-button color="primary" (click)="addToCart(item)">
+          <mat-icon>shopping_cart</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    }
+
+  <div *ngIf="selectedItem" class="overlay fade-in">
+      <mat-card>
+        <mat-card-title>Buy {{ selectedItem.type }}</mat-card-title>
+        <mat-card-content>
+          <form [formGroup]="buyForm">
+            <mat-form-field appearance="fill">
+              <mat-label>Quantity</mat-label>
+              <input matInput type="number" formControlName="quantity">
+            </mat-form-field>
+              <mat-form-field appearance="fill">
+              <mat-label>Price</mat-label>
+              <input matInput type="number" formControlName="price">
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary" (click)="buy()">Buy</button>
+          <button mat-button (click)="cancel()">Back</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  

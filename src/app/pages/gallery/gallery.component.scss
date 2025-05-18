@@ -1,0 +1,114 @@
+img{
+    height: 300px;
+    width: 300px;
+    padding: 20px;
+}
+
+mat-card-content form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+  max-width: 250px;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: 16px;
+}
+
+mat-card-title {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.furniture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .furniture-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: 100%;
+  }
+
+  .furniture-card.new-card {
+  background-color: #e3fceb;
+  border: 2px solid #34a853;
+}
+
+.new-tag {
+  background-color: #34a853;
+  color: white;
+  font-weight: bold;
+  padding: 4px 8px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  z-index: 1;
+}
+
+.overlay mat-card {
+  padding: 10px;
+  position: fixed;
+  z-index: 999;
+  width: 90vw;
+  max-width: 250px; 
+  background: white;
+  display: flex;
+  justify-content: center;
+  animation: scaleUp 0.5s forwards;
+}
+
+.overlay {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeInAnimation 0.3s forwards;
+}
+
+@keyframes fadeInAnimation {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}
